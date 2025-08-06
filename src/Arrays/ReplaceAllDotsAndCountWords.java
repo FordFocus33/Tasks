@@ -25,8 +25,8 @@ public class ReplaceAllDotsAndCountWords {
     }
 
     public static void oneLineSolution(String s) {
-        Map<String, Integer> map = Arrays.asList(s.toLowerCase().replaceAll("[,.!?]", "").split(" "))
-                .stream().collect(Collectors.toMap(wrd -> wrd, wrd -> 1, Integer::sum));
-        System.out.println(map);
+        Arrays.asList(s.toLowerCase().replaceAll("[,.!?]", "").split(" "))
+                .stream().collect(Collectors.toMap(wrd -> wrd, wrd -> 1, Integer::sum))
+                .forEach((str, num) -> System.out.println(str + " -> " + num));
     }
 }
