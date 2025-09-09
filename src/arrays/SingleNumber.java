@@ -1,7 +1,10 @@
-package Arrays;
+package arrays;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.stream.Stream;
 
 public class SingleNumber {
     public static void main(String[] args) {
