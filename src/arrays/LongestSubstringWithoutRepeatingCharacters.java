@@ -31,27 +31,39 @@ import java.util.HashSet;
  */
 public class LongestSubstringWithoutRepeatingCharacters {
     public static void main(String[] args) {
-        String s = "au";
+        String s = "geeksforgeeks";
         System.out.println(result(s));
     }
 
     public static int result(String s) {
+        if (s.length() <= 1) return s.length();
         int result = 0;
         int interimsum = 0;
         HashSet<String> interim = new HashSet<>();
-        for (int i = 0; i < s.length(); i++) {
+        int countOfCycles = 0;
+        while (countOfCycles < s.length()) {
+            for (int i = countOfCycles; i < s.length(); i++) {
 
-            char c = s.charAt(i);
-            if (interim.contains(String.valueOf(c))) {
-                if (interim.size() > result) {
-                    result = interimsum;
+                char c = s.charAt(i);
+                if (interim.contains(String.valueOf(c))) {
+                    if (interim.size() > result) {
+                        result = interimsum;
+                    }
+                    interim.clear();
+                    interimsum = 0;
                 }
-                interim.clear();
-                interimsum = 0;
-            }
                 interim.add(String.valueOf(c));
                 interimsum++;
+            }
+            if (interimsum > result) result = interimsum;
+            countOfCycles++;
+            interimsum = 0;
+            interim.clear();
         }
         return Math.max(interimsum, result);
     }
+
+    /**
+     * Я считаю, что это считается)
+     */
 }

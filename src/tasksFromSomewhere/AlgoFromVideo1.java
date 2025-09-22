@@ -16,7 +16,11 @@ public class AlgoFromVideo1 {
         for (Character character : str.toCharArray()) {
             map.put(character, map.containsKey(character) ? 0 : 1);
         }
-        return map.entrySet().stream().filter(s -> s.getValue().equals(1)).map(Map.Entry::getKey).findFirst().orElseThrow(NoSuchElementException::new);
+        return map.entrySet().stream()
+                .filter(s -> s.getValue().equals(1))
+                .map(Map.Entry::getKey)
+                .findFirst()
+                .orElseThrow(NoSuchElementException::new);
     }
 
     public static void main(String[] args) {
