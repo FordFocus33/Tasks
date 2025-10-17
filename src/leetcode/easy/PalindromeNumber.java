@@ -1,6 +1,4 @@
-package leetcode;
-
-import java.time.LocalDateTime;
+package leetcode.easy;
 
 public class PalindromeNumber {
     public static void main(String[] args) {
@@ -13,7 +11,7 @@ public class PalindromeNumber {
         StringBuilder sb = new StringBuilder();
         sb.append(x);
         sb.reverse();
-        int reversedX = Integer.parseInt(sb.toString());
+        long reversedX = Long.parseLong(sb.toString());
 
         return reversedX == x;
     }
