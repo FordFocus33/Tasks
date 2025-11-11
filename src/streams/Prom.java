@@ -42,6 +42,6 @@ public class Prom {
     }
 
     public static void main(String[] args) {
-        flatMapExample();
+        exampleOfConcat();
     }
 }
