@@ -1,5 +1,8 @@
 package trickyTasks;
 
+/**
+ * Какой будет вывод у result?
+ */
 public class SideEffectSurprise {
     static int x = 10;
 
