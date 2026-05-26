@@ -17,4 +17,17 @@ public class RemoveDuplicatesFromSortedArray {
         }
         return uniqueIndex;
     }
+
+//    Более быстрый вариант
+//int[] nums = {1,1,2,2,3};
+//    int remember = nums[0];
+//    int step = 1;
+//
+//        for (int i = 0; i < nums.length; i++) {
+//        if (nums[i] > remember) {
+//            nums[step] = nums[i];
+//            remember = nums[i];
+//            step++;
+//        }
+//    }
 }
