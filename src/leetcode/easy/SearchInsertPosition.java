@@ -24,7 +24,7 @@ public class SearchInsertPosition {
             }
         }
 
-        if (index != -1 && nums[index] == target) return index;
+        if (nums[index] == target) return index;
         return canBePosition;
     }
 }
