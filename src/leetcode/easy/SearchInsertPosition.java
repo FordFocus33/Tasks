@@ -10,21 +10,21 @@ public class SearchInsertPosition {
     public static int searchInsert(int[] nums, int target) {
         int left = 0;
         int right = nums.length - 1;
-        int index = 0;
-        int canBePosition = nums[0] > target ? 0 : nums.length;
+        int lastVisit = 0;
 
         while (left <= right) {
             int mid = left + (right - left) / 2;
-            if (nums[mid] >= target) {
-                index = mid;
+            int index = nums[mid];
+            if (index == target) {
+                return mid;
+            }
+            if (index > target) {
                 right = mid - 1;
-                canBePosition = mid;
-            } else {
+            } if (index < target) {
                 left = mid + 1;
+                lastVisit = left;
             }
         }
-
-        if (nums[index] == target) return index;
-        return canBePosition;
+        return Math.max(lastVisit, 0);
     }
 }
