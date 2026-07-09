@@ -28,4 +28,17 @@ public class MatrixDiagonalSum {
         }
         System.out.println(sum);
     }
+
+//      Этот нравится больше
+//    int result = 0;
+//        int reverse = mat.length - 1;
+//
+//        for (int i = 0; i < mat.length; i++) {
+//            if (i != reverse) {
+//                result += mat[i][i];
+//            }
+//            result += mat[i][reverse--];
+//        }
+//
+//        System.out.println(result);
 }
