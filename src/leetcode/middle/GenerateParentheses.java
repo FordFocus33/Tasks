@@ -28,6 +28,10 @@ public class GenerateParentheses {
             sb.deleteCharAt(sb.length() - 1);
         }
 
+        /*
+        open + 1 создаёт новое значение, не изменяя саму переменную. open++ или ++open изменяет саму переменную
+         */
+
         if (close < open) {
             sb.append(')');
             backtrack(result, sb, open, close + 1, n);
