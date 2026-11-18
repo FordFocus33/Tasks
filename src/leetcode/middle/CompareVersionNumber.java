@@ -6,56 +6,33 @@ public class CompareVersionNumber {
     public static void main(String[] args) {
         String ver1 = "1.0.1";
         String ver2 = "1";
-        System.out.println(calculateBigger(ver1, ver2));
+        System.out.println(compareVersion(ver1, ver2));
     }
 
-    public static int calculateBigger(String version1, String version2) {
-        int[] firstMas = {};
-        int[] secondMas = {};
-        String hub = "";
-        for (int i = 0; i < version1.length(); i++) {
-            if (version1.charAt(i) == '.') {
-                int oldLength = firstMas.length;
-                firstMas = Arrays.copyOf(firstMas, firstMas.length + 1);
-                firstMas[oldLength] = Integer.parseInt(hub);
-                hub = "";
-            } else if (version1.length() - 1 == i) {
-                hub += version1.charAt(i);
-                int oldLength = firstMas.length;
-                firstMas = Arrays.copyOf(firstMas, firstMas.length + 1);
-                firstMas[oldLength] = Integer.parseInt(hub);
-                hub = "";
-            } else {
-                hub += version1.charAt(i);
-            }
-        }
+    public static int compareVersion(String version1, String version2) {
+        int[] mas1 = baby(version1);
+        int[] mas2 = baby(version2);
 
-        for (int i = 0; i < version2.length(); i++) {
-            if (version2.charAt(i) == '.') {
-                int oldLength = secondMas.length;
-                secondMas = Arrays.copyOf(secondMas, secondMas.length + 1);
-                secondMas[oldLength] = Integer.parseInt(hub);
-                hub = "";
-            } else if (version2.length() - 1 == i) {
-                hub += version2.charAt(i);
-                int oldLength = secondMas.length;
-                secondMas = Arrays.copyOf(secondMas, secondMas.length + 1);
-                secondMas[oldLength] = Integer.parseInt(hub);
-            } else {
-                hub += version2.charAt(i);
-            }
-        }
-        int stepFirst = 0;
-        int secondStep = 0;
+        int way = Math.max(mas1.length, mas2.length);
 
-        while (stepFirst < firstMas.length && secondStep < secondMas.length) {
-            if (firstMas[stepFirst] > secondMas[secondStep]) return 1;
-            else if (firstMas[stepFirst] < secondMas[secondStep]) return -1;
-            else {
-                if (stepFirst < firstMas.length) stepFirst++;
-                if (secondStep < secondMas.length) secondStep++;
+        for (int i = 0; i < way; i++) {
+            int a = 1 < mas1.length ? mas1[i] : 0;
+            int b = 1 < mas2.length ? mas2[i] : 0;
+
+            if (a != b) {
+                return a > b ? 1 : -1;
             }
         }
         return 0;
+    }
+
+    public static int[] baby(String text) {
+        String[] parts = text.split("\\.");
+        int[] mas = new int[parts.length];
+        int step = 0;
+        for (int i = 0; i < parts.length; i++) {
+            mas[step] = Integer.parseInt(parts[i]);
+        }
+        return mas;
     }
 }
