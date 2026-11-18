@@ -1,7 +1,5 @@
 package leetcode.middle;
 
-import java.util.Arrays;
-
 public class CompareVersionNumber {
     public static void main(String[] args) {
         String ver1 = "1.0.1";
